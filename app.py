@@ -101,18 +101,43 @@ def uploaded_file2(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER_BTS'], filename)
 
 
-@app.route('/delete/<filename>', methods=['POST'])
-def delete_image(filename):
-    file_path = os.path.join(app.config['UPLOAD_FOLDER'],filename)
-    if os.path.exists(file_path):
-        os.remove(file_path)
-        return redirect(url_for('main'))
-@app.route('/delete2/<filename>', methods=['POST'])
-def delete_image2(filename):
-    file_path = os.path.join(app.config['UPLOAD_FOLDER_BTS'],filename)
-    if os.path.exists(file_path):
-        os.remove(file_path)
-        return redirect(url_for('main2'))
+
+@app.route("/delete", methods=["POST"])
+def delete_image():
+    filename = request.form["filename"]
+
+    delete_url = f"{SUPABASE_URL}/storage/v1/object/{SUPABASE_BUCKET}/{filename}"
+    headers = {
+        "Authorization": f"Bearer {SUPABASE_KEY}"
+    }
+
+    response = requests.delete(delete_url, headers=headers)
+
+    if response.status_code == 200 or response.status_code == 204:
+        print(f"Deleted {filename}")
+    else:
+        print("Delete failed:", response.text)
+
+    return redirect(url_for("main"))
+    
+
+@app.route("/delete", methods=["POST"])
+def delete_image2():
+    filename = request.form["filename"]
+
+    delete_url = f"{SUPABASE_URL}/storage/v1/object/{SUPABASE_BUCKET}/{filename}"
+    headers = {
+        "Authorization": f"Bearer {SUPABASE_KEY}"
+    }
+
+    response = requests.delete(delete_url, headers=headers)
+
+    if response.status_code == 200 or response.status_code == 204:
+        print(f"Deleted {filename}")
+    else:
+        print("Delete failed:", response.text)
+
+    return redirect(url_for("main2"))
 os.makedirs('static/uploads', exist_ok=True)
 os.makedirs('static/uploadsbts', exist_ok=True)
 if __name__ == '__main__':
