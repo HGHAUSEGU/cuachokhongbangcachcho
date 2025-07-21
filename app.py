@@ -16,8 +16,8 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Supabase config
-SUPABASE_URL = "https://us-3cgk.onrender.com"
-SUPABASE_KEY = "YOUR_ANON_KEY"
+SUPABASE_URL = "https://cuachokhongbangcachcho.onrender.com"
+SUPABASE_KEY = "album"
 SUPABASE_BUCKET = "uploads"
 
 @app.route("/", methods=["GET", "POST"])
