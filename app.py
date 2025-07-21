@@ -47,10 +47,7 @@ def index():
 
     return render_template("mainpage.html", image_url=image_url)
 
-@app.route('/main')
-def main():
-    images = os.listdir(app.config['UPLOAD_FOLDER'])
-    return render_template('mainpage.html', images=images)
+
 @app.route('/main2')
 def main2():
     images = os.listdir(app.config['UPLOAD_FOLDER_BTS'])
