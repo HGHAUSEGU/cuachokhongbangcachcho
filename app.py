@@ -45,18 +45,17 @@ def index():
         else:
             print("Upload failed:", response.text)
 
-    return render_template("mainpage.html", image_url=image_url)
+    return render_template("index.html", image_url=image_url)
 
 
+@app.route('/main')
+def main():
+    images = os.listdir(app.config['UPLOAD_FOLDER'])
+    return render_template('mainpage.html', images=images)
 @app.route('/main2')
 def main2():
     images = os.listdir(app.config['UPLOAD_FOLDER_BTS'])
     return render_template('mainpage copy.html', images=images)
-@app.route('/')
-def index():
-    # Get the list of images from the uploads folder
-    images = os.listdir(app.config['UPLOAD_FOLDER'])
-    return render_template('index.html', images=images)
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
