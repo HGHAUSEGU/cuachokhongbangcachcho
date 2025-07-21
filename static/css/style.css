@@ -1,0 +1,157 @@
+.upload-form form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+}
+/* Custom upload button styles */
+.custom-upload-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e76a6a;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-family: 'Parisienne', cursive;
+    font-size: 16px;
+    border: none;
+    transition: background 0.2s;
+}
+.custom-upload-btn:hover {
+    background-color: #aa4242;
+}
+body {
+    font-family: 'Parisienne', cursive;
+    margin: 0;
+    background-color: #f2e6da;
+}
+
+header {
+    background-color: #f2e6da;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+
+.upload-btn, .back-btn, .nextalbum-btn, .upload-form input[type="submit"] {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.upload-btn::after, .back-btn::after, .nextalbum-btn::after, .upload-form input[type="submit"]::after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.upload-btn:hover::after, .back-btn:hover::after, .nextalbum-btn:hover::after, .upload-form input[type="submit"]:hover::after {
+  transform: translate(0, 0);
+}
+
+.upload-btn:active, .back-btn:active, .nextalbum-btn:active, .upload-form input[type="submit"]:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.upload-btn:hover, .back-btn:hover, .nextalbum-btn:hover, .upload-form input[type="submit"]:hover {
+  outline: 0;
+  background-color: #e8b9b4;
+}
+
+@media (min-width: 768px) {
+  .upload-btn, .back-btn, .nextalbum-btn, .upload-form input[type="submit"] {
+    padding: 0 40px;
+  }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.upload-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.sticky-note {
+  width: 480px;
+  padding: 20px;
+  margin: 2rem auto;
+  background-color: #fff9b1; /* soft sticky note yellow */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #f0e68c;
+  font-family: 'Parisienne', cursive;
+  font-size: 18px;
+  line-height: 1.5;
+  transform: rotate(-2deg);
+  position: relative;
+}
+
+/* Add the pin effect (optional) */
+.sticky-note::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: crimson;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}

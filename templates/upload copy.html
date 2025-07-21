@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Upload a New Image of us</h1>
+        <a href="{{ url_for('index') }}" class="back-btn">Back to Album</a>
+    </header>
+
+    <div class="upload-form">
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" id="file-upload" name="file" accept="image/*" style="display: none;">
+            <label for="file-upload" class="custom-upload-btn">Choose an Image</label>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>

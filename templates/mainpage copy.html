@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Album</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sương An's Favorite Album 📸</h1>
+        <a href="{{ url_for('upload_file2') }}" class="nextalbum-btn">Upload Image 2</a>
+    </header>
+   
+   <div class="gallery">
+    {% for image in images %}
+    <div class="gallery-item">
+        <img src="{{ url_for('uploaded_file2', filename=image) }}" alt="{{ image }}">
+        <form action="{{ url_for('delete_image2', filename=image) }}" method="POST" style="margin-top: 0.5rem;">
+            <input type="submit" value="Delete" class="upload-btn" onclick="return confirm('Are you sure you want to delete this image?');">
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
